@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Docsy</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><svg viewBox="0 0 40 40" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7C5CBF"/><stop offset="1" stop-color="#3F9D8E"/></linearGradient></defs><rect width="40" height="40" rx="11" fill="url(#lg)"/><path d="M12 8h12l6 6v18a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2z" fill="#fff"/><path d="M24 8l6 6h-4a2 2 0 0 1-2-2z" fill="#F4A9B8"/><rect x="14" y="19" width="12" height="2" rx="1" fill="#7C5CBF"/><rect x="14" y="24" width="12" height="2" rx="1" fill="#3F9D8E"/><rect x="14" y="29" width="7" height="2" rx="1" fill="#4B3A8F"/></svg><span>Docsy</span></div>
+  <input id="title" value="Untitled document" aria-label="Document name" spellcheck="false">
+  <span id="saved" class="saved">Saved</span>
+  <div class="hb">
+    <button class="btn" id="fb" type="button" title="Find and replace (Ctrl+F)">Find</button>
+    <button class="btn" id="sb" type="button" title="Show or hide statistics">Stats</button>
+    <button class="btn" id="theme" type="button" title="Light / dark">Theme</button>
+    <button class="btn" id="nw" type="button">New</button>
+    <button class="btn p" id="ex" type="button" title="Export HTML (Ctrl+S)">Export HTML</button>
+  </div>
+</header>
+
+<div class="tb" id="tb">
+  <div class="g"><button data-c="undo" title="Undo">↶</button><button data-c="redo" title="Redo">↷</button></div>
+  <div class="g">
+    <select id="blk" title="Paragraph style"><option value="p">Normal text</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option><option value="blockquote">Quote</option></select>
+    <select id="ff" title="Font"><option value="Georgia">Georgia</option><option value="Arial">Arial</option><option value="Verdana">Verdana</option><option value="Courier New">Courier</option><option value="Times New Roman">Times</option></select>
+    <select id="sz" title="Font size"><option value="2">Small</option><option value="3" selected>Medium</option><option value="4">Large</option><option value="5">X-Large</option><option value="6">Huge</option></select>
+  </div>
+  <div class="g">
+    <button data-c="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+    <button data-c="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+    <button data-c="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+    <button data-c="strikeThrough" title="Strikethrough"><s>S</s></button>
+    <button data-c="superscript" title="Superscript">x²</button>
+    <button data-c="subscript" title="Subscript">x₂</button>
+    <label class="col" title="Text colour"><input type="color" id="col" value="#5b4bff"><span>A</span></label>
+  </div>
+  <div class="g">
+    <button data-c="justifyLeft" title="Align left">⯇</button>
+    <button data-c="justifyCenter" title="Center">≡</button>
+    <button data-c="justifyRight" title="Align right">⯈</button>
+    <button data-c="justifyFull" title="Justify">☰</button>
+  </div>
+  <div class="g">
+    <button data-c="outdent" title="Decrease indent">⇤</button>
+    <button data-c="indent" title="Increase indent">⇥</button>
+    <button data-c="insertUnorderedList" title="Bullet list">• List</button>
+    <button data-c="insertOrderedList" title="Numbered list">1. List</button>
+    <select id="ls" title="Line spacing"><option value="">Line spacing</option><option>1</option><option>1.15</option><option>1.5</option><option>2</option></select>
+  </div>
+  <div class="g">
+    <button id="up" title="UPPERCASE">AA</button><button id="lo" title="lowercase">aa</button><button id="ti" title="Title Case">Aa</button>
+  </div>
+</div>
+
+<div class="find" id="fr">
+  <input id="fi" placeholder="Find word">
+  <input id="ri" placeholder="Replace with">
+  <button class="btn" id="fn" type="button">Find next</button>
+  <button class="btn" id="ra" type="button">Replace all</button>
+  <span id="fm" class="mute"></span>
+</div>
+
+<main>
+  <div class="stage"><div id="ed" contenteditable="true" spellcheck="true" aria-label="Document editor"><h1>Welcome to Docsy</h1><p>Start typing here. Select text and use the toolbar: <b>bold</b>, <i>italic</i>, H<sub>2</sub>O, E = mc<sup>2</sup>.</p></div></div>
+  <aside id="side">
+    <h2>Statistics</h2>
+    <div class="cards" id="st"></div>
+  </aside>
+</main>
+
+<footer class="status"><span id="s1"></span><span id="s2"></span><span id="s3"></span></footer>
+<div id="toast" class="toast" role="status"></div>
+
+<dialog id="dlg">
+  <h2>Export as HTML</h2>
+  <div class="tabs"><button class="tab on" id="tp" type="button">Preview</button><button class="tab" id="tc" type="button">HTML code</button></div>
+  <div id="pv" aria-label="Preview of the exported page"></div>
+  <textarea id="src" readonly></textarea>
+  <div class="act">
+    <button class="btn p" id="cp" type="button">Copy HTML</button>
+    <button class="btn" id="dl" type="button">Download .html</button>
+    <button class="btn" id="cl" type="button">Close</button>
+  </div>
+</dialog>
+<script src="script.js"></script>
+</body>
+</html>
